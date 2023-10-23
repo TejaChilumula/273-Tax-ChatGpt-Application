@@ -1,0 +1,132 @@
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <title>Tax Question Prompt</title>
+</head>
+<body>
+    <h1>Tax Question Prompt</h1>
+    <form method="POST" action="/ask">
+        <label for="question">Enter your tax-related question:</label>
+        <input type="text" id="question" name="question">
+        <input type="submit" value="Ask">
+    </form>
+    {% if question %}
+    <h2>Your Question:</h2>
+    <p>{{ question }}</p>
+    <h2>Answer:</h2>
+    <p>{{ answer }}</p>
+    {% endif %}
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tax Question Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        .chat-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f8f8f8;
+        }
+        
+        .chat-message {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        #question
+        {
+            width: 85%;
+        }
+        .user-message {
+            text-align: right;
+        }
+        
+        .answer-message {
+            text-align: left;
+        }
+        .buttons
+        {
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: row;
+        }
+        
+        .send  {
+            margin: 20px;
+            margin-right: 60px;
+            width: 30px;
+            height: 30px;
+            opacity: 1;
+
+        .button-icon{
+            width: 25px;
+            height: 25px;
+        }
+        .btn{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            color: white;
+        }
+        .c-btn
+        {
+            color: white;
+            background-color: blueviolet;
+            margin: 40px;
+            width: 130px;
+            height: 130px;
+        }
+        
+}
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <h1>Tax Question Chat</h1>
+        <form method="POST" action="/ask">
+            <div class="chat-message user-message">
+                <label for="question">You:</label>
+                <input type="text" id="question" name="question">
+            </div>
+            <div class="chat-message answer-message">
+                <label for="answer">ChatGPT:</label>
+                <p>{{ answer }}</p>
+            </div>
+            <div class="buttons">
+                <div class="send">
+                    <button class="btn" type="submit" value="Send">
+                        <img  src="/assets/gpt-image.png" alt="Send" class="button-icon" /> Send
+                    </button>
+                </div>
+                
+                    <input class="c-btn" type="button" value="Cancel" onclick="clearChat()"/>
+                
+            
+            </div>
+            
+
+        </form>
+    </div>
+    <script>
+        function clearChat() {
+            document.getElementById("question").value = "";
+            document.querySelector(".answer-message p").textContent = "";
+        }
+    </script>
+</body>
+</html>
